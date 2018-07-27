@@ -1,4 +1,4 @@
-import { put } from "redux-saga";
+import { put, call } from "redux-saga/effects";
 
 import {
   WEATHER_FOR_INPUT_REQUEST_FAILED,

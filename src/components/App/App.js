@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "../../logo.svg";
+import "./App.css";
 
 class App extends Component {
+  componentDidMount() {
+    const { getWeatherByLocation /*getWeatherByCity*/ } = this.props;
+    getWeatherByLocation(52.2319, 21.0067);
+    // getWeatherByCity("Warszawa", "pl");
+  }
+
   render() {
     return (
       <div className="App">
