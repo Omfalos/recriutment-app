@@ -22,8 +22,6 @@ To run developers environment run the selected script:
   npm run start:dev
   ```
 
-
-
 - yarn:
   ```
   yarn start:dev
