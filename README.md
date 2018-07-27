@@ -1,6 +1,6 @@
 ## HOW TO INSTALL
 
-To install all dependencies clone repository and run:
+To install all dependencies clone repository and run in console:
 
 - npm:
   ```
@@ -14,15 +14,26 @@ To install all dependencies clone repository and run:
 
 ## Run developers environment
 
-To run developers environment run the selected script:
+To run developers environment run the selected script in console:
 
 - npm:
 
   ```
-  npm run start:dev
+  npm run start
   ```
 
 - yarn:
   ```
-  yarn start:dev
+  yarn start
+  ```
+
+## TO build a production ready package run in console:
+
+- npm:
+  ```
+  npm run build
+  ```
+- yarn:
+  ```
+  yarn build
   ```
