@@ -6,7 +6,7 @@ import { WEATHER_FOR_INPUT_REQUEST } from "../actions/requestWeatherForInput";
 
 const ConnectedApp = connect(
   ({ weather }) => ({
-    weather
+    ...weather
   }),
   dispatch => ({
     getWeatherByCity: (city, countryCode = "us") =>

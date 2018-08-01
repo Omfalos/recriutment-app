@@ -1,24 +1,59 @@
 import React, { Component } from "react";
-import logo from "../../logo.svg";
+import { PropagateLoader } from "react-spinners";
+
+import ConnectedSearch from "../../containers/Search";
+import Weather from "../../containers/Wather";
 import "./App.css";
 
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
 class App extends Component {
+  state = {
+    geolocationError: false
+  };
+
   componentDidMount() {
-    const { getWeatherByLocation /*getWeatherByCity*/ } = this.props;
-    getWeatherByLocation(52.2319, 21.0067);
-    // getWeatherByCity("Warszawa", "pl");
+    const { getWeatherByLocation } = this.props;
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const coordinates = position.coords;
+          getWeatherByLocation(coordinates.latitude, coordinates.longitude);
+        },
+        () => {
+          this.setState({
+            geolocationError: true
+          });
+        },
+        options
+      );
+    } else {
+      this.setState({
+        geolocationError: true
+      });
+    }
   }
 
   render() {
+    const { data, error, loading } = this.props;
+    const { geolocationError } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div className="App">
+          <ConnectedSearch />
+        </div>
+        {loading && (
+          <div className="LoaderWrapper">
+            <PropagateLoader loading={true} />
+          </div>
+        )}
+
+        {data && <Weather />}
+        {geolocationError && !data && <p>Please input city and country code</p>}
       </div>
     );
   }

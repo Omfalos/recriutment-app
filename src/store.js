@@ -6,7 +6,6 @@ import rootSaga from "./sagas";
 
 const rootReducer = combineReducers({ weather: weatherReducer });
 
-// Store goes here
 const sagaMiddleware = createSagaMiddleware();
 
 const composeEnhancers =
@@ -16,10 +15,7 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const enhancer = composeEnhancers(
-  applyMiddleware(sagaMiddleware)
-  // other store enhancers if any
-);
+const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
 
 let store = createStore(rootReducer, enhancer);
 

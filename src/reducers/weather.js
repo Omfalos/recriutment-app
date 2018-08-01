@@ -9,7 +9,14 @@ import {
   WEATHER_FOR_LOCATION_REQUEST_FAILED
 } from "../actions/requestWeatherForLocation";
 
-const weatherReducer = (state = {}, action) => {
+const weatherReducer = (
+  state = {
+    error: false,
+    loading: false,
+    data: null
+  },
+  action
+) => {
   switch (action.type) {
     case WEATHER_FOR_INPUT_REQUEST_SUCCESS:
     case WEATHER_FOR_LOCATION_REQUEST_SUCCESS:
