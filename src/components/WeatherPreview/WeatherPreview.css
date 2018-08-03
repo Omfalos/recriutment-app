@@ -1,0 +1,63 @@
+.weatherPreview {
+  width: 100%;
+  padding: 0 0 0 70px;
+  margin: 0 auto;
+  position: relative;
+  height: 300px;
+}
+
+.weatherInfo {
+  margin: 8px;
+  background: rgba(224, 224, 224, 0.2);
+  font-size: 1em;
+  width: 46%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  padding: 10px 0;
+  text-align: center;
+  align-self: center;
+}
+.weatherPreview i {
+  color: rgb(63, 81, 181);
+}
+
+.windWrapper {
+  padding: 15px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+}
+
+.windTitle {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.windDirection {
+  position: absolute;
+  left: 15px;
+  top: 13px;
+  display: block;
+  width: 23px;
+  height: 31px;
+}
+
+.weatherView {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.buttonWrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 100%;
+}

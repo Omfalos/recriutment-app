@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 import "./Search.css";
 
 class Search extends Component {
@@ -31,21 +32,38 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="Search">
-        <TextField
-          fullWidth
-          label="Insert city name"
-          onChange={this.handleCityChange}
-        />
-        <TextField
-          fullWidth
-          label="Insert country code"
-          onChange={this.handleCountryCodeChange}
-        />
-        <Button size="large" color="primary" onClick={this.handleSubmit}>
-          Submit
-        </Button>
-      </div>
+      <Grid
+        container
+        xs={12}
+        alignItems="center"
+        direction="row"
+        justify="center"
+      >
+        <Grid item xs={12} sm={3}>
+          <TextField
+            fullWidth
+            label="Insert city name"
+            onChange={this.handleCityChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <TextField
+            fullWidth
+            label="Insert country code"
+            onChange={this.handleCountryCodeChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={1}>
+          <Button
+            size="large"
+            fullWidth
+            color="primary"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 }

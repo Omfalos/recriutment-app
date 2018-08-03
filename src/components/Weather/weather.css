@@ -1,0 +1,11 @@
+.cityWrapper {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.dayWrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}

@@ -12,9 +12,9 @@ To install all dependencies clone repository and run in console:
   yarn install
   ```
 
-## Run developers environment
+## HOW TO RUN DEVELOPMENT ENVIRONMENT
 
-To run developers environment run the selected script in console:
+To run development environment run the selected script in console:
 
 - npm:
 
@@ -27,7 +27,9 @@ To run developers environment run the selected script in console:
   yarn start
   ```
 
-## TO build a production ready package run in console:
+## BUILD PACKAGE:
+
+To build production ready code run fallowing scripts:
 
 - npm:
   ```
@@ -37,3 +39,9 @@ To run developers environment run the selected script in console:
   ```
   yarn build
   ```
+
+## THINGS TO IMPROVE
+
+- find country code api
+- create a request wrapper
+-

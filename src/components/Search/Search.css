@@ -1,5 +1,3 @@
-.Search {
-  max-width: 1280px;
-  display: flex;
-  align-items: stretch;
+.fullWidth {
+  width: 100%;
 }
