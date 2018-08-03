@@ -44,4 +44,7 @@ To build production ready code run fallowing scripts:
 
 - find country code api
 - create a request wrapper
--
+- ui for responsive could have been better
+- more tests
+- wind icon still jumps
+- select not days buttons on small screen

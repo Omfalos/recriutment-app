@@ -38,8 +38,9 @@ class Weather extends Component {
     const { activeDay } = this.state;
     return (
       <Button
+        key={day}
         variant="contained"
-        color={day === activeDay ? "primary" : "standard"}
+        color={day === activeDay ? "primary" : "default"}
         onClick={() => this.setState({ activeDay: day })}
       >
         {" "}

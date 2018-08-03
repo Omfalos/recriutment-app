@@ -32,13 +32,7 @@ class Search extends Component {
 
   render() {
     return (
-      <Grid
-        container
-        xs={12}
-        alignItems="center"
-        direction="row"
-        justify="center"
-      >
+      <Grid container alignItems="center" direction="row" justify="center">
         <Grid item xs={12} sm={3}>
           <TextField
             fullWidth

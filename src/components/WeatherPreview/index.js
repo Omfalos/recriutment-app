@@ -34,7 +34,7 @@ class WeatherPreview extends Component {
     const { speed, deg } = day[activeHour].wind;
     return (
       <div className="weatherView">
-        <Grid container xs={12} spacing={8}>
+        <Grid container spacing={8}>
           <Grid item xs={6}>
             <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
@@ -47,7 +47,7 @@ class WeatherPreview extends Component {
                 component="span"
               >
                 <span>{temp}</span>
-                <WeatherIcons size="1x" name="celsius" />
+                <WeatherIcons name="celsius" />
               </Typography>
             </Paper>
           </Grid>
@@ -62,7 +62,7 @@ class WeatherPreview extends Component {
                 align="center"
                 component="span"
               >
-                <WeatherIcons size="1x" name="barometer" /> {pressure} hPa
+                <WeatherIcons name="barometer" /> {pressure} hPa
               </Typography>
             </Paper>
           </Grid>
@@ -77,7 +77,7 @@ class WeatherPreview extends Component {
                 align="center"
                 component="span"
               >
-                {humidity} <WeatherIcons size="1x" name="humidity" />
+                {humidity} <WeatherIcons name="humidity" />
               </Typography>
             </Paper>
           </Grid>
@@ -92,7 +92,7 @@ class WeatherPreview extends Component {
                 align="center"
                 component="span"
               >
-                <WeatherIcons size="1x" name="cloudy" /> {all} %
+                <WeatherIcons name="cloudy" /> {all} %
               </Typography>
             </Paper>
           </Grid>
@@ -108,7 +108,7 @@ class WeatherPreview extends Component {
                 align="center"
                 component="span"
               >
-                <WeatherIcons size="1x" name="strong-wind" /> {speed} m/s
+                <WeatherIcons name="strong-wind" /> {speed} m/s
               </Typography>
             </Paper>
           </Grid>
@@ -148,7 +148,8 @@ class WeatherPreview extends Component {
             const { activeHour } = this.state;
             return (
               <Button
-                color={index === activeHour ? "secondary" : "standard"}
+                key={`${hour}_${index}`}
+                color={index === activeHour ? "secondary" : "default"}
                 variant="contained"
                 onClick={() => this.setState({ activeHour: index })}
               >
