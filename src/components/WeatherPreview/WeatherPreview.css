@@ -18,17 +18,17 @@
   text-align: center;
   align-self: center;
 }
+
 .weatherPreview i {
   color: rgb(63, 81, 181);
 }
 
 .windWrapper {
   padding: 15px;
-  float: left;
   position: relative;
-  overflow: hidden;
+  display: inline-block;
   width: 30px;
-  height: 30px;
+  height: 50px;
 }
 
 .windTitle {
@@ -41,8 +41,6 @@
   left: 15px;
   top: 13px;
   display: block;
-  width: 23px;
-  height: 31px;
 }
 
 .weatherView {

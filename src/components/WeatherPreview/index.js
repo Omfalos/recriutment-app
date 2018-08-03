@@ -2,10 +2,19 @@ import React, { Component } from "react";
 import PropType from "prop-types";
 import WeatherIcons from "react-weathericons";
 import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import "./WeatherPreview.css";
+
+const styles = theme => ({
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2
+  }
+});
 
 class WeatherPreview extends Component {
   static propTypes = {
@@ -17,7 +26,7 @@ class WeatherPreview extends Component {
     activeHour: 0
   };
   renderDayWeather = () => {
-    const { day } = this.props;
+    const { day, classes } = this.props;
     const { activeHour } = this.state;
     if (!day[activeHour]) return null;
     const { temp, pressure, humidity } = day[activeHour].main;
@@ -27,48 +36,102 @@ class WeatherPreview extends Component {
       <div className="weatherView">
         <Grid container xs={12} spacing={8}>
           <Grid item xs={6}>
-            <Paper>
-              {temp} <WeatherIcons size="2x" name="celsius" />
+            <Paper className={classes.root}>
+              <Typography variant="headline" component="h4">
+                Temperature:
+              </Typography>
+              <Typography
+                variant="display2"
+                gutterBottom
+                align="center"
+                component="span"
+              >
+                <span>{temp}</span>
+                <WeatherIcons size="1x" name="celsius" />
+              </Typography>
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper>
-              {pressure} hPa <WeatherIcons size="2x" name="barometer" />
+            <Paper className={classes.root}>
+              <Typography variant="headline" component="h4">
+                Pressure:
+              </Typography>
+              <Typography
+                variant="display2"
+                gutterBottom
+                align="center"
+                component="span"
+              >
+                <WeatherIcons size="1x" name="barometer" /> {pressure} hPa
+              </Typography>
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper>
-              {humidity} <WeatherIcons size="2x" name="humidity" />
+            <Paper className={classes.root}>
+              <Typography variant="headline" component="h4">
+                Humidity:
+              </Typography>
+              <Typography
+                variant="display2"
+                gutterBottom
+                align="center"
+                component="span"
+              >
+                {humidity} <WeatherIcons size="1x" name="humidity" />
+              </Typography>
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper>
-              {all} %<WeatherIcons size="2x" name="cloudy" />
+            <Paper className={classes.root}>
+              <Typography variant="headline" component="h4">
+                Clouds:
+              </Typography>
+              <Typography
+                variant="display2"
+                gutterBottom
+                align="center"
+                component="span"
+              >
+                <WeatherIcons size="1x" name="cloudy" /> {all} %
+              </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12}>
-            <Typography variant="headline" component="h3">
-              Wind:
-            </Typography>
-          </Grid>
+
           <Grid item xs={6}>
-            <Paper>
-              {speed} m/s<WeatherIcons size="2x" name="strong-wind" />
+            <Paper className={classes.root}>
+              <Typography variant="headline" component="h4">
+                Wind Speed:
+              </Typography>
+              <Typography
+                variant="display2"
+                gutterBottom
+                align="center"
+                component="span"
+              >
+                <WeatherIcons size="1x" name="strong-wind" /> {speed} m/s
+              </Typography>
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper>
+            <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
                 Wind direction:
               </Typography>
-              <div className="windWrapper">
-                <span
-                  className="windDirection"
-                  style={{ transform: `rotate(${deg}deg)` }}
-                >
-                  <WeatherIcons size="2x" name="wind-direction" />
-                </span>
-              </div>
+              <Typography
+                variant="display2"
+                gutterBottom
+                align="center"
+                component="span"
+              >
+                <div className="windWrapper">
+                  <span
+                    className="windDirection"
+                    style={{ transform: `rotate(${deg}deg)` }}
+                  >
+                    <WeatherIcons size="2x" name="wind-direction" />
+                  </span>
+                </div>
+              </Typography>
             </Paper>
           </Grid>
         </Grid>
@@ -100,4 +163,4 @@ class WeatherPreview extends Component {
   }
 }
 
-export default WeatherPreview;
+export default withStyles(styles)(WeatherPreview);
