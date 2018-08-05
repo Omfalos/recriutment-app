@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { PropagateLoader } from "react-spinners";
 
 import ConnectedSearch from "../../containers/Search";
@@ -12,6 +13,16 @@ const options = {
 };
 
 class App extends Component {
+  static propTypes = {
+    data: PropTypes.shape({
+      message: PropTypes.number,
+      code: PropTypes.string,
+      cnt: PropTypes.number
+    }),
+    error: PropTypes.bool,
+    loading: PropTypes.bool
+  };
+
   state = {
     geolocationError: false
   };
@@ -54,6 +65,7 @@ class App extends Component {
 
         {data && <Weather />}
         {geolocationError && !data && <p>Please input city and country code</p>}
+        {error && <p>Sorry, something went wrong... Please try again later</p>}
       </div>
     );
   }

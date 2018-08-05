@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -30,6 +31,13 @@ const groupByDays = list => {
 };
 
 class Weather extends Component {
+  static propTypes = {
+    list: PropTypes.array,
+    city: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      country: PropTypes.string.isRequired
+    })
+  };
   state = {
     activeDay: moment().format("dddd")
   };
@@ -37,15 +45,17 @@ class Weather extends Component {
   renderDay = day => {
     const { activeDay } = this.state;
     return (
-      <Button
-        key={day}
-        variant="contained"
-        color={day === activeDay ? "primary" : "default"}
-        onClick={() => this.setState({ activeDay: day })}
-      >
-        {" "}
-        {day}{" "}
-      </Button>
+      <Grid item xs={12} sm={2} key={day}>
+        <Button
+          fullWidth
+          variant="contained"
+          color={day === activeDay ? "primary" : "default"}
+          onClick={() => this.setState({ activeDay: day })}
+        >
+          {" "}
+          {day}{" "}
+        </Button>
+      </Grid>
     );
   };
 
@@ -65,13 +75,15 @@ class Weather extends Component {
               direction="row"
               justify="center"
             >
-              <Grid item xs={12}>
-                <div className="cityWrapper">
-                  <Typography variant="headline" component="h2">
-                    City: {city.name}, {city.country}
-                  </Typography>
-                </div>
-                <div className="dayWrapper">{daysList.map(this.renderDay)}</div>
+              <Grid item container xs={12} spacing={8}>
+                <Grid item xs={12}>
+                  <div className="cityWrapper">
+                    <Typography variant="headline" component="h2">
+                      City: {city.name}, {city.country}
+                    </Typography>
+                  </div>
+                </Grid>
+                {daysList.map(this.renderDay)}
               </Grid>
               <Grid item container xs={12} spacing={8}>
                 <WeatherPreview day={days[activeDay]} />

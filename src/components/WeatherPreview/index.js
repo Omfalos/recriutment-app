@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import WeatherIcons from "react-weathericons";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
@@ -19,7 +19,7 @@ const styles = theme => ({
 class WeatherPreview extends Component {
   static propTypes = {
     //todo make a better info about properties
-    day: PropType.array
+    day: PropTypes.array
   };
 
   state = {
@@ -35,7 +35,7 @@ class WeatherPreview extends Component {
     return (
       <div className="weatherView">
         <Grid container spacing={8}>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
                 Temperature:
@@ -51,7 +51,7 @@ class WeatherPreview extends Component {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
                 Pressure:
@@ -66,7 +66,7 @@ class WeatherPreview extends Component {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
                 Humidity:
@@ -81,7 +81,7 @@ class WeatherPreview extends Component {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
                 Clouds:
@@ -97,7 +97,7 @@ class WeatherPreview extends Component {
             </Paper>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
                 Wind Speed:
@@ -112,7 +112,7 @@ class WeatherPreview extends Component {
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <Paper className={classes.root}>
               <Typography variant="headline" component="h4">
                 Wind direction:
